@@ -20,6 +20,12 @@ public class StreamExample1 {
 		.filter(p-> p.getLastName().startsWith("D"))
 		.count();
 		System.out.println(count);
+		
+		long count2 = people.parallelStream()
+				.filter(p-> p.getLastName().startsWith("D"))
+				.count();
+				System.out.println(count);
+		System.out.println(count2);
 	}
 
 }
