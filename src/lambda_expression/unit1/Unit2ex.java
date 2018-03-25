@@ -1,4 +1,4 @@
-package lambda_expression;
+package lambda_expression.unit1;
 
 import java.util.Arrays;
 import java.util.Collections;

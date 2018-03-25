@@ -1,4 +1,4 @@
-package unit2;
+package lambda_expression.unit2;
 
 public class unitTest2 {
 

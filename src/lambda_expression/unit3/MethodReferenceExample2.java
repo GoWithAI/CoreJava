@@ -1,4 +1,4 @@
-package unit3;
+package lambda_expression.unit3;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import lambda_expression.Person;
+import lambda_expression.unit1.Person;
 
 public class MethodReferenceExample2 {
 

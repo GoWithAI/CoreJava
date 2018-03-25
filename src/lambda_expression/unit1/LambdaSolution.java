@@ -1,17 +1,15 @@
-package lambda_expression;
+package lambda_expression.unit1;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class ConsumerLambdaExample {
+public class LambdaSolution {
 
 	public static void main(String[] args) {
-		List<Person> people = Arrays.asList(new Person("Charles", 
-				"Dickens", 60), new Person("Lewis", "Carroll", 42),
-				new Person("Thomas", "Carlyle", 51), new Person("Charlotte", "Bronte", 45),
+		List<Person> people = Arrays.asList(new Person("Charles", "Dickens", 60), new Person("Lewis", "Carroll", 42),
+				new Person("Thomas", "Carlyle", 51), new Person("charlotte", "Bronte", 45),
 				new Person("Matthew", "Arnold", 39));
 
 		// Steps 1: Sort list by last name
@@ -19,22 +17,21 @@ public class ConsumerLambdaExample {
 
 		// Steps 2: Create a method that prints all elements in the list
 		System.out.println("Printing all persons");
-		performConditionally(people, p -> true, p -> System.out.println(p));
+		printConditionally(people, p -> true);
 		// Steps 3: Create a method that prints all people that have last name
 		// beginning with c
 		System.out.println("Printing all persons with last name beginning with C");
-		performConditionally(people, p -> p.getLastName().startsWith("C"), p -> System.out.println(p));
+		printConditionally(people, p -> p.getLastName().startsWith("C"));
 
 		System.out.println("Printing all persons with first name beginning with C");
-		performConditionally(people, p -> p.getFirstName().startsWith("C"), p -> System.out.println(p.getFirstName()));
+		printConditionally(people, p -> p.getFirstName().startsWith("C"));
 
 	}
 
-	private static void performConditionally(List<Person> people, Predicate<Person> predicate,
-			Consumer<Person> consume) {
+	private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
 		for (Person p : people) {
 			if (predicate.test(p)) {
-				consume.accept(p);
+				System.out.println(p);
 			}
 		}
 
