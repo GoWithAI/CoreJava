@@ -1,4 +1,4 @@
-package unitTest2;
+package unit2;
 
 import java.util.function.BiConsumer;
 
