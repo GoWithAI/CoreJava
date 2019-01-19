@@ -16,10 +16,10 @@ public class StringShifting {
 			shiftString[shiftPostion] = c[i];
 
 		}
-		int i=0;
-		while (i < stringLenght) {
-			System.out.println(shiftString[i]);
-			i++;
+		int index=0;
+		while (index < stringLenght) {
+			System.out.println(shiftString[index]);
+			index++;
 		}
 	}
 
