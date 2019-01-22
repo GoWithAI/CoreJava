@@ -10,5 +10,5 @@ Note that  i.e. 'h' is moved by 2 positions to the . Also,  i.e. 'r', which is t
 Approach:
 
 Declare another auxillary string  that is of the same size as.
-Copy  element of  to the  position in . This means,  where .
+Copy  element of  to the  position in . This means,  where.
 Make sure that  never exceeds , because that will try to access a memory location which is not declared in . There's a simple trick to ensure that - use  
