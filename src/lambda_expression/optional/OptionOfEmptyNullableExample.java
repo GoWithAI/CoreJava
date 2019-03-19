@@ -19,8 +19,9 @@ public class OptionOfEmptyNullableExample {
 	public static void main(String[] args) {
 
 		System.out.println(ofNullable());
-		System.out.println(of());
 		System.out.println(empty());
+		System.out.println(of());
+
 	}
 
 }
