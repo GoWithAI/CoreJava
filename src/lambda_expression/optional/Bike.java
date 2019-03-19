@@ -1,4 +1,4 @@
-package lambda_expression.optinal;
+package lambda_expression.optional;
 public class Bike {
 
     private String name;

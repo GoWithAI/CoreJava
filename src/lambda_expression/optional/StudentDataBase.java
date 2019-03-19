@@ -1,4 +1,4 @@
-package lambda_expression.optinal;
+package lambda_expression.optional;
 
 import java.util.Arrays;
 import java.util.List;
