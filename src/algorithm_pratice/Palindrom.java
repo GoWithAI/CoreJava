@@ -12,8 +12,21 @@ public class Palindrom {
 
 		char[] charArray = word.toCharArray();
 		for (int start = 0, end = word.length() - 1; start < end; ++start, --end) {
-			// check if the two values are not the same
 			if (charArray[start] != charArray[end])
+				return false;
+		}
+		return true;
+	}
+
+	public boolean isPalindrome2(String word) {
+		StringBuilder sb = new StringBuilder(word);
+		String reverseWord = sb.reverse().toString();
+		return word.equals(reverseWord);
+	}
+
+	public boolean isPalindrome3(String word) {
+		for (int start = 0, end = word.length() - 1; start < end; ++start, --end) {
+			if (word.charAt(start) != word.charAt(end))
 				return false;
 		}
 		return true;
