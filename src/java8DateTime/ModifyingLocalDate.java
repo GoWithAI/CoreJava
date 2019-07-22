@@ -44,11 +44,33 @@ public class ModifyingLocalDate {
 		System.out.println("ALIGNED_DAY_OF_WEEK_IN_MONTH="+localDate.with(ChronoField.ALIGNED_DAY_OF_WEEK_IN_MONTH, 2));
 		
 		System.out.println("2nd week Monday Date will return ="+localDate.with(TemporalAdjusters.dayOfWeekInMonth(2, DayOfWeek.MONDAY)));
-		System.out.println("="+localDate);
-		System.out.println("="+localDate);
-		System.out.println("="+localDate);
+		System.out.println("Next Date of Week="+localDate.with(TemporalAdjusters.next(DayOfWeek.MONDAY)));
 		
-
+		/*is Lead Year*/
+		System.out.println("is Leap Year :"+localDate.isLeapYear());
+		System.out.println("is Leap Year :"+LocalDate.ofYearDay(2020, 01).isLeapYear());
+		
+		/**Unsupported **/
+		if(localDate.isSupported(ChronoUnit.SECONDS)) {
+			System.out.println("Unsupproted Exception="+localDate.minus(7, ChronoUnit.SECONDS));	
+		}
+		System.out.println("isSupproted :"+localDate.isSupported(ChronoUnit.SECONDS));
+		
+		if(localDate.isSupported(ChronoUnit.DAYS)) {
+			System.out.println("Supproted DAYS="+localDate.minus(7, ChronoUnit.DAYS));	
+		}
+		System.out.println("isSupproted :"+localDate.isSupported(ChronoUnit.DAYS));
+		
+		/*isEqual, isBefore, isAfter, */
+		LocalDate date1 = LocalDate.of(2019, 07, 1);
+		LocalDate date2 = LocalDate.of(2019, 07, 25);
+		LocalDate date3 = LocalDate.of(2019, 07, 25);
+		
+		System.out.println("isBefore="+date1.isBefore(date2));
+		System.out.println("isAfter="+date2.isAfter(date1));
+		System.out.println("isAfter="+date1.isAfter(date2));
+		System.out.println("isEqual="+date2.isEqual(date3));
+		System.out.println("isEqual="+date1.isEqual(date3));
 	}
 
 }
