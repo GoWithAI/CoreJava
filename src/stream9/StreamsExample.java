@@ -1,9 +1,12 @@
 package stream9;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import streamsData.StudentDataBase;
 import streamsData.Student;
 
@@ -20,6 +23,18 @@ public class StreamsExample {
 				.collect(Collectors.toMap(Student::getName, Student::getActivities));
 
 		System.out.println(studentInfo);
+		
+		String[] names = {"Sam", "Pamela", "Dave", "Pascal", "Erik"};
+		List<String> l=new ArrayList<String>();
+		l.add("1");
+		l.add("2");
+		IntStream.range(0, l.size()).forEach(index -> {
+			System.out.println(index +"   "+ l.get(index));
+		});
+		
+		
+		
+		
 	}
 
 }
