@@ -19,7 +19,7 @@ public class MethodRefExample {
 	
 	static Predicate<Student> studentPredicate= (s) -> s.getGradeLevel() == 3;
 	
-	static Predicate<Student> studentPredicateRefactoredToMethodRef= MethodRefExample::greaterThanGradeLevel; ;
+	static Predicate<Student> studentPredicateRefactoredToMethodRef= MethodRefExample::greaterThanGradeLevel;
 	
 	public static boolean greaterThanGradeLevel(Student s) {
 		return s.getGradeLevel() == 3;
