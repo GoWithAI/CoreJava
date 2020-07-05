@@ -3,7 +3,6 @@ package lambda_expression.unit8.effectiveFinal;
 import java.util.function.Consumer;
 
 public class LambadaVaribleEx1 {
-
 	
 	static int j=9;
 	
