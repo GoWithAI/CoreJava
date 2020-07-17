@@ -6,8 +6,6 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-import java.util.ArrayList;
-
 import data.Student;
 import data.StudentDataBase;
 
@@ -36,6 +34,7 @@ public class StreamFlatMap {
 				}
 			}
 			
+			// we can do it in this Case
 			for(int i=0; i<f.size();i++) {
 				String string = f.get(i);
 				if (string.equals("swimming")) {
@@ -58,6 +57,8 @@ public class StreamFlatMap {
 				.flatMap(List::stream) // Stream<String>
 				.collect(toList());
 
+		System.out.println(studentActivitiesFlaten2);
+		
 		System.out.println(studentActivitiesFlaten2);
 
 		return null;
