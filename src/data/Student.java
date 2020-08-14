@@ -11,14 +11,6 @@ public class Student {
     private int noteBooks;
     private Optional<Bike> bike;
 
-    public Optional<Bike> getBike() {
-        return bike;
-    }
-
-    public void setBike(Optional<Bike> bike) {
-        this.bike = bike;
-    }
-
     public Student(){
 
     }
@@ -32,15 +24,6 @@ public class Student {
         this.activities = activities;
     }
 
-    public int getNoteBooks() {
-
-        return noteBooks;
-    }
-
-    public void setNoteBooks(int noteBooks) {
-        this.noteBooks = noteBooks;
-    }
-
     public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
         this.name = name;
         this.gradeLevel = gradeLevel;
@@ -48,7 +31,7 @@ public class Student {
         this.gender = gender;
         this.activities = activities;
     }
-
+    
     public Student(String s) {
         this.name = s;
     }
@@ -99,7 +82,24 @@ public class Student {
 
         System.out.println("List of Activities are : " + this.activities);
     }
+    
+    public int getNoteBooks() {
 
+        return noteBooks;
+    }
+
+    public void setNoteBooks(int noteBooks) {
+        this.noteBooks = noteBooks;
+    }
+    
+    public Optional<Bike> getBike() {
+        return bike;
+    }
+
+    public void setBike(Optional<Bike> bike) {
+        this.bike = bike;
+    }
+    
     @Override
     public String toString() {
         return "Student{" +
