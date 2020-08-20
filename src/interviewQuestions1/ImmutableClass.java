@@ -1,4 +1,4 @@
-package interviewQuestions;
+package interviewQuestions1;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,7 +27,7 @@ public final class ImmutableClass {
 	 */
 	public ImmutableClass(int i, String n, HashMap<String, String> hm) {
 		System.out.println("Performing Deep Copy for Object Initialization");
-		this.id = 1;
+		this.id = i;
 		this.name = n;
 		HashMap<String, String> tempMap = new HashMap<String, String>();
 		String key;
