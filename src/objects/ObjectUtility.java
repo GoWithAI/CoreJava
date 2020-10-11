@@ -1,5 +1,6 @@
 package objects;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class ObjectUtility {
@@ -20,12 +21,10 @@ public class ObjectUtility {
 		System.out.println("requireNonNull:" + Objects.requireNonNull(b));// check for null or throw null pointer
 																			// exception		
 		
-		String s1 = "testStr";
-        String s2 = "testStr2";
-		System.out.println("deepEquals:" + Objects.compare(s1, s2,  String::compareTo));
-
+		System.out.println("deepEquals:" + Objects.deepEquals(a, b)); // arrays package
 		
-		System.out.println("deepEquals:" + Objects.deepEquals(a, b));
+		Comparator comparator = null;
+		System.out.println("deepEquals:" + Objects.compare(a, b, comparator));
 	}
 
 }
