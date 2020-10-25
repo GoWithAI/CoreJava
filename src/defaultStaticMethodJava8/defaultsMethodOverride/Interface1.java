@@ -1,5 +1,7 @@
 package defaultStaticMethodJava8.defaultsMethodOverride;
 
+//default interface methods are abstract 
+// Instance varible are static final
 public interface Interface1 {
 
 	default void test() {
@@ -20,5 +22,9 @@ public interface Interface1 {
 	 */	
 	default void test2() {
 		System.out.println("Interface1-test2");
+	}
+	
+	static void testStatic() {
+		System.out.println("Interface1-Static method");
 	}
 }
