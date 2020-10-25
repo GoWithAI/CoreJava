@@ -14,6 +14,7 @@ public class CollectionDesignIssue {
 		list.add(3);
 		list.add(4);
 		list.remove(1); //Remove based on Index of list
+		//It consider as remove(index) instead of remove(object) and call method in ArrayList  
 		System.out.println(list);
 		
 		
@@ -23,6 +24,7 @@ public class CollectionDesignIssue {
 		collection.add(3);
 		collection.add(4);
 		collection.remove(1); // Remove based on Comparing object
+		// It Consider as Object
 		System.out.println(collection);
 	}
 
