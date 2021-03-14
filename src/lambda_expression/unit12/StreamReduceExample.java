@@ -20,7 +20,7 @@ public class StreamReduceExample {
 			// a=1, b=3(b from stream) => result 3 is returned
 			// a=3, b=5(b from stream) => result 15 is returned in a
 			// a=15, b=7(b from stream) => result 105 is returned from .reduce(...);
-			.reduce(1, (a,b) -> a*b);
+			.reduce(2, (a,b) -> a*b);
 	
 	}
 	
@@ -56,7 +56,7 @@ public class StreamReduceExample {
 
 		List<Integer> integers = Arrays.asList(1,3,5,7);
 		
-		System.out.println(performMultiplication(integers));
+		System.out.println("performMultiplication :"+performMultiplication(integers));
 		
 		Optional<Integer> performMultiplicationWithoutIdentity = performMultiplicationWithoutIdentity(integers);
 		

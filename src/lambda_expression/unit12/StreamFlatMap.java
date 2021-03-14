@@ -19,6 +19,7 @@ public class StreamFlatMap {
 
 		System.out.println(studentActivities);
 
+		//its not clean code
 		Function<List<String>, Stream<String>> activitiesFun = f -> {
 			f.forEach(s -> {
 				if (s.equals("swimming")) {
