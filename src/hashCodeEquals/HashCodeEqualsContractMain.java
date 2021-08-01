@@ -21,7 +21,7 @@ package hashCodeEquals;
  * 5. For any non-null reference value x, x.equals(null) should return false.
  * */
 
-public class HashCodeEqualsContract {
+public class HashCodeEqualsContractMain {
 
 	public static void main(String[] args) {
 		Money income = new Money(55, "USD");
@@ -51,7 +51,7 @@ public class HashCodeEqualsContract {
 		System.out.println("Wrong Result :" + cash.equals(voucher));
 
 		//***********Fixing equals() Symmetry With Composition*************
-		System.out.println("*************Violating equals() Symmetry With Inheritance***********");
+		System.out.println("*************Fixing equals() Symmetry With Composition***********");
 		Money2 cash2 = new Money2(42, "USD");
 		Voucher voucher2 = new Voucher(42, "USD", "Amazon");
 		System.out.println("Correct Result :" + voucher2.equals(cash2));

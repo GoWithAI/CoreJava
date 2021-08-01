@@ -1,4 +1,4 @@
-package test2;
+package test.interview;
 
 @FunctionalInterface
 public interface FunctionalInterfaceExtend<T> extends FunctionalInterface2<T> {

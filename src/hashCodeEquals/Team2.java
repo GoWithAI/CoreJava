@@ -30,6 +30,7 @@ class Team2 {
 
 	@Override
 	public int hashCode() {
+		super.hashCode();
 		int result = 17;
 		if (city != null) {
 			result = 31 * result + city.hashCode();

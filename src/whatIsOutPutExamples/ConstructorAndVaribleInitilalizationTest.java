@@ -29,7 +29,7 @@ class E{
 		System.out.println("E");
 	}
 }
-public class Test {
+public class ConstructorAndVaribleInitilalizationTest {
 
 	public static void main(String[] args) {
 		new B();
@@ -42,4 +42,4 @@ public class Test {
 //D
 //C
 //B
-// First Instance Variables are Initialized then Constructor is called
+// First Super class constructor then Current class Instance Variables are Initialized then > current class Constructor is called

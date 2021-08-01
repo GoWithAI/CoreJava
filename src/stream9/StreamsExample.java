@@ -28,6 +28,10 @@ public class StreamsExample {
 		List<String> l=new ArrayList<String>();
 		l.add("1");
 		l.add("2");
+		l.add("3");
+		l.add("4");
+		l.add("5");
+		l.add("6");
 		IntStream.range(0, l.size()).forEach(index -> {
 			System.out.println(index +"   "+ l.get(index));
 		});

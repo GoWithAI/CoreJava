@@ -1,4 +1,4 @@
-package test2;
+package test.interview;
 
 import java.util.Objects;
 import java.util.function.Consumer;

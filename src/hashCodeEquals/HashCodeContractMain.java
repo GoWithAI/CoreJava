@@ -10,7 +10,7 @@ import java.util.Map;
  * objects that are equal to each other must return the same hashCode 
  * 3.collisions: unequal objects may have the same hashCode
  **/
-public class HashCodeContract {
+public class HashCodeContractMain {
 
 	public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package string;
+package stringOperation;
 
 public class SubStringExample {
 

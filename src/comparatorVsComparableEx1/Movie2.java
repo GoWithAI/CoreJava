@@ -1,8 +1,6 @@
 package comparatorVsComparableEx1;
 
 //A Java program to demonstrate Comparator interface
-import java.io.*;
-import java.util.*;
 
 //A class 'Movie' that implements Comparable
 class Movie2 implements Comparable<Movie2>
@@ -14,6 +12,7 @@ class Movie2 implements Comparable<Movie2>
   // Used to sort movies by year
   public int compareTo(Movie2 m)
   {
+	  System.out.println(this.year - m.year);
       return this.year - m.year;
   }
 

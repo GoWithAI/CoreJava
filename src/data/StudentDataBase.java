@@ -47,7 +47,7 @@ public class StudentDataBase {
 				Arrays.asList("swimming", "dancing", "football"));
 		Student student7 = new Student("James", 4, 3.9, "male", 22,
 				Arrays.asList("swimming", "basketball", "baseball", "football"));
-		Student student6 = new Student("James", 4, 4, "male", 22,
+		Student student6 = new Student("Jbmes", 4, 4, "male", 22,
 				Arrays.asList("swimming", "basketball", "baseball", "football"));
 
 		List<Student> students = Arrays.asList(student1, student2, student3, student4, student5, student6, student7,

@@ -1,4 +1,4 @@
-package problemStatment;
+package problemStatment.stream;
 
 
 import java.net.URISyntaxException;

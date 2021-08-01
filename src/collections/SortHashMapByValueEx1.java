@@ -59,7 +59,7 @@ public class SortHashMapByValueEx1 {
 
 	private static <K, V extends Comparable<? super V>> void sortGenericMethod(Map<K, V> unsortMap) {
 
-		List<Map.Entry<K, V>> list = new LinkedList<Map.Entry<K, V>>(unsortMap.entrySet());
+		List<Map.Entry<K, V>> list = new ArrayList<Map.Entry<K, V>>(unsortMap.entrySet());
 
 		//(x < y) ? -1 : ((x == y) ? 0 : 1);
 		Comparator<Map.Entry<K, V>> valueCoparator = new Comparator<>() {

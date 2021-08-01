@@ -3,6 +3,8 @@ package comparatorVsComparableEx1;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//we can use only one comparison
+// Here we can sort by year only
 public class ComparableTest {
 
 	public static void main(String[] args) {
