@@ -6,7 +6,7 @@ class Movie implements Comparable<Movie> {
 	private String name;
 	private int year;
 
-	// Used to sort movies by year
+	// Used to sort movies by year 0,1,-1
 	public int compareTo(Movie m) {
 		return this.year - m.year;
 	}

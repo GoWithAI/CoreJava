@@ -42,6 +42,7 @@ public final class ImmutableRGB {
 		this.name = name;
 		//Deep cloning - Initialise all your fields by deeply copying them if they are not immutable in nature 
 		//this.empClone = new Emp(empClone.getId(), empClone.getName());
+		//bad approach
 		this.empClone=empClone;
 	}
 	
