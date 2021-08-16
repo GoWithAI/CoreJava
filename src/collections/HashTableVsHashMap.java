@@ -25,6 +25,9 @@ public class HashTableVsHashMap {
         ht.put(101,"Vijay"); 
         ht.put(102,"Ravi"); 
         ht.put(103,"Rahul");
+        //ht.put(null, null);
+        //ht.put(null, "Test");
+        //ht.put(104, null);
        
         
         System.out.println("-------------Hash table--------------"); 
