@@ -17,6 +17,7 @@ public class Producer implements Runnable {
 
 		while (true) {
 			q.put(data++);
+			System.out.println("put : " + data);
 		}
 
 	}

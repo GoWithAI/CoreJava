@@ -1,4 +1,4 @@
-package lambda_expression.unit12;
+package streamInterviewQA.numeric;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -22,6 +22,9 @@ public class GroupByAndFindMaxValueObjectInGroup {
 				.collect(Collectors.groupingBy(Student::getGender,Collectors.maxBy(Comparator.comparingDouble(Student::getGpa))));
 
 		System.out.println(studentMap);
+		
+		Map<String, Optional<Student>> collect = StudentDataBase.getAllStudents().stream().collect(Collectors.groupingBy(Student::getGender, Collectors.maxBy(Comparator.comparing(Student::getName))));
+		
 	}
 
 }

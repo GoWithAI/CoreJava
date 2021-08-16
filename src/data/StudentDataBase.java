@@ -50,7 +50,9 @@ public class StudentDataBase {
 		Student student6 = new Student("Jbmes", 4, 4, "male", 22,
 				Arrays.asList("swimming", "basketball", "baseball", "football"));
 
-		List<Student> students = Arrays.asList(student1, student2, student3, student4, student5, student6, student7,
+		List<Student> students = Arrays.asList(student1, student2, student3, student4, student5, student6, student7);
+		
+		List<Student> students2 = Arrays.asList(student1, student2, student3, student4, student5, student6, student7,
 				null);
 		return students;
 	}

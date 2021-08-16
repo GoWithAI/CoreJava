@@ -12,9 +12,9 @@ public class Consumer implements Runnable {
 
 	@Override
 	public void run() {
-		while (true) {
+		while(true) {
 			int i = q.get();
-
+			System.out.println("get :" + i);
 		}
 	}
 

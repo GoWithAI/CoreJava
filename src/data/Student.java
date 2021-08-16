@@ -1,115 +1,110 @@
 package data;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class Student {
-    private String name;
-    private int gradeLevel;
-    private double gpa;
-    private String gender;
-    private int noteBooks;
-    private Optional<Bike> bike;
+	private String name;
+	private int gradeLevel;
+	private double gpa;
+	private String gender;
+	private int noteBooks;
+	private Optional<Bike> bike;
 
-    public Student(){
+	List<String> activities = new ArrayList<>();
 
-    }
+	public Student() {
 
-    public Student(String name, int gradeLevel, double gpa, String gender, int noteBooks, List<String> activities) {
-        this.name = name;
-        this.gradeLevel = gradeLevel;
-        this.gpa = gpa;
-        this.gender = gender;
-        this.noteBooks = noteBooks;
-        this.activities = activities;
-    }
+	}
 
-    public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
-        this.name = name;
-        this.gradeLevel = gradeLevel;
-        this.gpa = gpa;
-        this.gender = gender;
-        this.activities = activities;
-    }
-    
-    public Student(String s) {
-        this.name = s;
-    }
+	public Student(String name, int gradeLevel, double gpa, String gender, int noteBooks, List<String> activities) {
+		this.name = name;
+		this.gradeLevel = gradeLevel;
+		this.gpa = gpa;
+		this.gender = gender;
+		this.noteBooks = noteBooks;
+		this.activities = activities;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
+		this.name = name;
+		this.gradeLevel = gradeLevel;
+		this.gpa = gpa;
+		this.gender = gender;
+		this.activities = activities;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public Student(String s) {
+		this.name = s;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
-    public int getGradeLevel() {
-        return gradeLevel;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setGradeLevel(int gradeLevel) {
-        this.gradeLevel = gradeLevel;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public double getGpa() {
-        return gpa;
-    }
+	public int getGradeLevel() {
+		return gradeLevel;
+	}
 
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
-    }
+	public void setGradeLevel(int gradeLevel) {
+		this.gradeLevel = gradeLevel;
+	}
 
-    List<String> activities = new ArrayList<>();
+	public double getGpa() {
+		return gpa;
+	}
 
-    public  List<String> getActivities() {
-        return this.activities;
-    }
+	public void setGpa(double gpa) {
+		this.gpa = gpa;
+	}
 
-    public void setActivities(List<String> activities) {
-        this.activities = activities;
-    }
+	public List<String> getActivities() {
+		return this.activities;
+	}
 
-    public void printListOfActivities(){
+	public void setActivities(List<String> activities) {
+		this.activities = activities;
+	}
 
-        System.out.println("List of Activities are : " + this.activities);
-    }
-    
-    public int getNoteBooks() {
+	public void printListOfActivities() {
 
-        return noteBooks;
-    }
+		System.out.println("List of Activities are : " + this.activities);
+	}
 
-    public void setNoteBooks(int noteBooks) {
-        this.noteBooks = noteBooks;
-    }
-    
-    public Optional<Bike> getBike() {
-        return bike;
-    }
+	public int getNoteBooks() {
 
-    public void setBike(Optional<Bike> bike) {
-        this.bike = bike;
-    }
-    
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", gradeLevel=" + gradeLevel +
-                ", gpa=" + gpa +
-                ", gender='" + gender + '\'' +
-                ", activities=" + activities +
-                '}';
-    }
+		return noteBooks;
+	}
 
+	public void setNoteBooks(int noteBooks) {
+		this.noteBooks = noteBooks;
+	}
+
+	public Optional<Bike> getBike() {
+		return bike;
+	}
+
+	public void setBike(Optional<Bike> bike) {
+		this.bike = bike;
+	}
+
+	@Override
+	public String toString() {
+		return "Student{" + "name='" + name + '\'' + ", gradeLevel=" + gradeLevel + ", gpa=" + gpa + ", gender='"
+				+ gender + '\'' + ", activities=" + activities + '}';
+	}
 
 }
