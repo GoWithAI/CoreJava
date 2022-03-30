@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import data.Student;
 import data.StudentDataBase;
 
+// output will be always Map<K,V> groupingBy(...)
 public class StreamGroupByExample {
 
 	private static Function<Student, String> fun = student -> student.getGpa() >= 3.8 ? "OUTSTANDING" : "AVERAGE";

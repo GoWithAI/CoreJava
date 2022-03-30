@@ -10,7 +10,7 @@ import data.LineItem;
 import data.Order;
 import data.OrderData;
 
-public class FlatMapExample2 {
+public class FlatMapAdditionAverageExample {
 
 	public static void main(String[] args) {
 
@@ -20,18 +20,20 @@ public class FlatMapExample2 {
 
 		System.out.println(collect.size());
 
+	}
+
+	public void addition(List<Order> findAll) {
 		BigDecimal reduce = findAll.stream().flatMap(o -> o.getLineItems().stream()).map(l -> l.getTotal())
 				.reduce(BigDecimal.ZERO, BigDecimal::add);
 		System.out.println("addition : " + reduce);
+	}
 
+	public void avg(List<Order> findAll) {
 		System.out.println("***Average***");
 		OptionalDouble average = findAll.stream().flatMap(o -> o.getLineItems().stream())
 				.mapToDouble(l -> l.getTotal().doubleValue()).average();
-		
+
 		System.out.println(average.getAsDouble());
-
 	}
-
-	
 
 }
