@@ -30,7 +30,7 @@ public class Emp {
 	@Override
 	public boolean equals(Object obj) {
 		Emp emp = (Emp) obj;
-		return this.fname.equals(emp.getFname()) && this.lname.equals(emp.getLname());
+		return this.fname.equals(emp.getFname()) ;//&& this.lname.equals(emp.getLname());
 	}
 
 	@Override
@@ -38,7 +38,8 @@ public class Emp {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + fname.hashCode();
-		result = prime * result + ((lname == null) ? 0 : lname.hashCode());
+		//result = prime * result + ((lname == null) ? 0 : lname.hashCode());
+		System.out.println("hashCode :" + result);
 		return result;
 	}
 }

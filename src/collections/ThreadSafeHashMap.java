@@ -4,7 +4,6 @@ package collections;
 public class ThreadSafeHashMap {
 
 	public static void main(String[] args) {
-	
 
 	}
 
