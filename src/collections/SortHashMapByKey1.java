@@ -17,9 +17,13 @@ import java.util.stream.Collectors;
 public class SortHashMapByKey1 {
 
 	static Comparator<Entry<String, Integer>> compareKey = (i1, i2) -> i1.getKey().compareTo(i2.getKey());
+	
 	static Supplier<LinkedHashMap<String, Integer>> mapSupplierForObjectInsertion = LinkedHashMap::new;
-	static BinaryOperator<Integer> mergeFunction = (e1, e2) -> e1;// Pending
+	
+	static BinaryOperator<Integer> mergeFunction = (e1, e2) -> e1;// Pending ?
+	
 	static BiConsumer<String, Integer> display = (x, y) -> System.out.println(x + " " + y);
+	
 	// This map stores unsorted values
 	static Map<String, Integer> map = new HashMap<>();
 
@@ -32,8 +36,6 @@ public class SortHashMapByKey1 {
 		map.put("Danish", 40);
 
 		// Calling the function to sortbyKey
-		sortbykeyJava8();
-		System.out.println("**************");
 		sortbykeyJava8Stream();
 		System.out.println("**************");
 		sortbykeyTreeMap();
