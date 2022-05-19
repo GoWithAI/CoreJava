@@ -1,11 +1,6 @@
 package test.ex;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestThread extends Thread{
-
-	 
 	 
 	int count = 0;
 	

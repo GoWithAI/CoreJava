@@ -1,6 +1,10 @@
 package ocajp.Inheritance;
 
 public class Super {
+	
+	public Super() {
+		
+	}
 
 	protected String text = "super";
 

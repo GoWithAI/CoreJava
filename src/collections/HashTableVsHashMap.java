@@ -4,16 +4,17 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 /*
- * 1. HashMap is non synchronized. It is not-thread safe and can’t be shared between many 
+ * 1. HashMap is non synchronized. It is not-thread safe and can't be shared between many 
  * threads without proper synchronization code whereas Hashtable is synchronized. 
- * It is thread-safe and can be shared with many threads.
+ * HashTable is thread-safe and can be shared with many threads.
  * 
  * 2. HashMap allows one null key and multiple null values 
- * whereas Hashtable doesn’t allow any null key or value.
+ * whereas Hashtable doesn't allow any null key or value.
  * 
  * 3. HashMap is generally preferred over HashTable if thread synchronization is not needed
  * 
- * 
+ * 4. one thread is Iterating the HashMap object, if other thread try to add/modify 
+ * the contents of Object then we will get Run-time exception saying ConcurrentModificationException.
  * 
  * */
 public class HashTableVsHashMap {

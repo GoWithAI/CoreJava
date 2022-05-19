@@ -14,6 +14,8 @@ public class StreamsSumAvgExample {
 	}
 	
 	public static double average() {
+		
+		
 		return StudentDataBase.getAllStudents()
 				.stream()
 				.collect(Collectors.averagingInt(Student::getNoteBooks));
