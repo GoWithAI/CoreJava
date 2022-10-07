@@ -26,6 +26,9 @@ public class HashSetDuplicateObject {
 
 		hashSet.add(emp);
 		hashSet.add(emp2);
+		
+		boolean contains = hashSet.contains(new Emp("Dip", "Patil"));
+		System.out.println(contains);
 
 		System.out.println(hashSet);
 
