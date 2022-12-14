@@ -20,7 +20,7 @@ public class UnModifiableMapEx {
 		table.put("temp", "temp");
 		System.out.println("table :"+table);
 		
-		//unmodifiableMap.put("key4", "4"); //UnsupportedOperationException
+		unmodifiableMap.put("key4", "4"); //UnsupportedOperationException
 		
 		System.out.println("*************HASHMAP************");
 		Hashtable<String, String> table2 = new Hashtable<>();
@@ -35,7 +35,7 @@ public class UnModifiableMapEx {
 		table2.put("temp", "temp");
 		System.out.println("table2 :"+table2);
 		
-		unmodifiableMap.put("key4", "4");
+		//unmodifiableMap.put("key4", "4");
 		
 	}
 

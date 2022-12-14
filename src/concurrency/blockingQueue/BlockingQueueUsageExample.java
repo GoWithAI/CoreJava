@@ -14,6 +14,7 @@ public class BlockingQueueUsageExample {
 	
 	}
 
+	//unbounded blocking Queue where size is not fixed
 	private static void unboundedBlockingQueue() {
 		BlockingQueue<String> blockingQueue = new LinkedBlockingQueue<String>();
 	}
