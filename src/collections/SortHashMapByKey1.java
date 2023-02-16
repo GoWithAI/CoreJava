@@ -14,6 +14,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+// HashMap do not maintain insertion order
 public class SortHashMapByKey1 {
 
 	static Comparator<Entry<String, Integer>> compareKey = (i1, i2) -> i1.getKey().compareTo(i2.getKey());

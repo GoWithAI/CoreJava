@@ -1,6 +1,5 @@
 package collections;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 // HashSet : (Internally stores values as Key IN HashMap)
@@ -23,23 +22,19 @@ public class HashSetDuplicateObject {
 
 		// HashSet internally Put value as key in HashMap & value will be Empty Object
 		HashSet<Emp> hashSet = new HashSet<Emp>();
-
 		hashSet.add(emp);
 		hashSet.add(emp2);
-		
-		boolean contains = hashSet.contains(new Emp("Dip", "Patil"));
-		System.out.println(contains);
 
+		boolean contains = hashSet.contains(new Emp("Dipak", "Patil"));
+		System.out.println("Contains : "+contains);
 		System.out.println(hashSet);
 
-		/*
-		 * HashSet<String> hashSet2 = new HashSet<String>(); hashSet2.add("Dipak");
-		 * hashSet2.add("Dipak");
-		 * 
-		 * System.out.println(hashSet2);
-		 */
-		
-	
+		HashSet<String> hashSet2 = new HashSet<String>();
+		hashSet2.add("Dipak");
+		hashSet2.add("Dipak");
+
+		System.out.println(hashSet2);
+
 	}
 
 }

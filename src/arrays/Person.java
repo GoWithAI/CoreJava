@@ -1,10 +1,11 @@
 package arrays;
+
 class Person {
+	
 	private int id;
 	private String name;
 	private int age;
  
-        @Override
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;

@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -49,7 +48,9 @@ public class SortHashMapByValueEx1 {
 			}
 		};
 
-		Collections.sort(arry, valueCoparator);
+		Comparator<Map.Entry<String, Integer>> valueCoparator2 = (i1, i2) -> i1.getKey().compareTo(i2.getKey());
+		
+		Collections.sort(arry, valueCoparator2); //can use valueCoparator
 
 		for (Entry<String, Integer> entry : arry) {
 			linkedMap.put(entry.getKey(), entry.getValue());

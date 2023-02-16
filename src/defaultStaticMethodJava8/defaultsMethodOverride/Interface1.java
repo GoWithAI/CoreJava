@@ -1,5 +1,11 @@
 package defaultStaticMethodJava8.defaultsMethodOverride;
 
+/*
+Java 8 has introduced the concept of default methods which allow the interfaces to have methods with implementation without affecting the classes
+default methods were introduced to provide backward compatibility so that existing interfaces can use the lambda expressions without implementing the methods in the implementation class
+
+
+*/
 //default interface methods are abstract 
 // Instance varible are static final
 public interface Interface1 {
