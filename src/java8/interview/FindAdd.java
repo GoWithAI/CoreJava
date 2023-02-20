@@ -1,10 +1,8 @@
-package test.ex;
+package java8.interview;
 
-public class Test56 {
+public class FindAdd {
 
 	public static void main(String[] args) {
-		
-		
 
 	}
 

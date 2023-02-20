@@ -1,6 +1,6 @@
-package stringOperation;
+package test.ex;
 
-public class StringPool {
+public class StringPoolCompareEx {
 
 	public static void main(String[] args) {
 
@@ -10,7 +10,6 @@ public class StringPool {
 		System.out.println(s1 == s2); //?
 		System.out.println(s1.equals(s2));
 		System.out.println(s1.hashCode() +" + "+ s2.hashCode());
-		
 		
 	}
 

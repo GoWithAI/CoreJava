@@ -1,4 +1,4 @@
-package stringOperation;
+package test.ex;
 
 public class CamelCaseToSneakCase {
 

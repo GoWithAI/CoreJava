@@ -1,4 +1,4 @@
-package video;
+package interviewQuestions2;
 
 public class StaticMethodCallEx {
 

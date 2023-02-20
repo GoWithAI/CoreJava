@@ -1,4 +1,4 @@
-package test.interview;
+package java8.interview;
 
 public class CompareInteger {
 

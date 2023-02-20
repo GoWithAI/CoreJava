@@ -6,11 +6,12 @@ class A {
 	}
 }
 class B extends A {
-	public E e = new E();
-	public C c = new C();
+	public E e = new E(); //call 2
+	public C c = new C();// call 3
 	
-	public B() {
-		System.out.println("B");
+	public B() { 
+		//1 call super 
+		System.out.println("B");// call 4
 	}
 }
 class D{
