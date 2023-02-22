@@ -32,8 +32,8 @@ public class StreamDistinct {
 	private static List<String> getStudentActivitySorted() {
 
 		List<String> studentSortedAcitivities=StudentDataBase.getAllStudents().stream()
-		.map(Student::getActivities)
-		.flatMap(List::stream)
+		.map(Student::getActivities)// Stream<List<String>>
+		.flatMap(List::stream) // Stream - string, string, string 
 		.distinct()
 		.sorted()
 		.collect(toList());
