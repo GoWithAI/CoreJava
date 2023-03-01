@@ -3,7 +3,7 @@ package exceptionCases;
 public class Emp {
 
 	int i;
-	Test5 t = null;
+	TestExample t = null;
 
 	public int getI() {
 		return i;
@@ -13,11 +13,11 @@ public class Emp {
 		this.i = i;
 	}
 
-	public Test5 getT() {
+	public TestExample getT() {
 		return null;
 	}
 
-	public void setT(Test5 t) {
+	public void setT(TestExample t) {
 		this.t = t;
 	}
 

@@ -1,6 +1,6 @@
 package exceptionCases;
 
-public class Test5 {
+public class TestExample {
 	int j = 0;
 
 	public int getJ() {
