@@ -17,10 +17,11 @@ public class ProtectedValueAccessWithObject extends A2 {
 		System.out.println(this.x); // 0
 	}
 
+	// a.x = x can be access by sub class object ref but you can not access in another package with super class object
 	public void print2(int y) {
 		A2 a = new A2(); // A2 is not different package
 		// System.out.println(a.x);// compile time error - Not allowed to access through
-		// object
+		// object 
 		System.out.println(x); // 10
 	}
 }
