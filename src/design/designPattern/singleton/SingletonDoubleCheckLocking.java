@@ -10,8 +10,8 @@ public class SingletonDoubleCheckLocking {
 	}
 
 	// getInstance is not synchronized but the block which creates instance is
-	// synchronized so that minimum number of threads have to wait and that’s only
-	// for first time.
+	// synchronized so that minimum number of threads have to wait and thatï¿½s only
+	// for first time. Also Reduced Overhead if synchronization block instead of method
 	public static SingletonDoubleCheckLocking getInstance() {
 
 		if (instance == null) {

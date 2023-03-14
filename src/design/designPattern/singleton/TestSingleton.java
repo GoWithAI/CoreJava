@@ -15,6 +15,7 @@ public class TestSingleton {
 		SingletonDoubleCheckLocking instance5 = SingletonDoubleCheckLocking.getInstance();
 		
 		SingletonBillPugh instance6 = SingletonBillPugh.getInstance();
+		SingletonBillPugh instance6A = SingletonBillPugh.getInstance();
 	}
 
 }
