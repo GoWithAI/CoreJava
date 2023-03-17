@@ -1,4 +1,4 @@
-package test.ex;
+package stream9;
 
 import java.util.Arrays;
 import java.util.List;

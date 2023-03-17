@@ -17,15 +17,13 @@ public class StreamsExample {
 		Predicate<Student> gradePredicate = student -> student.getGradeLevel() >= 3;
 		Predicate<Student> gpaPredicate = student -> student.getGpa() >= 3.9;
 
-		Map<String, List<String>> studentInfo = StudentDataBase.getAllStudents().stream()
-				.filter(gradePredicate)
-				.filter(gpaPredicate)
-				.collect(Collectors.toMap(Student::getName, Student::getActivities));
+		Map<String, List<String>> studentInfo = StudentDataBase.getAllStudents().stream().filter(gradePredicate)
+				.filter(gpaPredicate).collect(Collectors.toMap(Student::getName, Student::getActivities));
 
 		System.out.println(studentInfo);
-		
-		String[] names = {"Sam", "Pamela", "Dave", "Pascal", "Erik"};
-		List<String> l=new ArrayList<String>();
+
+		String[] names = { "Sam", "Pamela", "Dave", "Pascal", "Erik" };
+		List<String> l = new ArrayList<String>();
 		l.add("1");
 		l.add("2");
 		l.add("3");
@@ -33,12 +31,9 @@ public class StreamsExample {
 		l.add("5");
 		l.add("6");
 		IntStream.range(0, l.size()).forEach(index -> {
-			System.out.println(index +"   "+ l.get(index));
+			System.out.println(index + "   " + l.get(index));
 		});
-		
-		
-		
-		
+
 	}
 
 }

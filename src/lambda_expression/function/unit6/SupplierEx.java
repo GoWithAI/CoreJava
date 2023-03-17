@@ -11,7 +11,7 @@ public class SupplierEx {
 
 	public static void main(String[] args) {
 
-		Supplier<Student> studentSupplier = () -> {
+		Supplier<Student> studentSupplier =  () -> {
 			return new Student("Adam", 2, 3.6, "male", 10, Arrays.asList("swimming", "basketball", "volleyball"));
 		};
 		System.out.println("Supplier : " + studentSupplier.get());
