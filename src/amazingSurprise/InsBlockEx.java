@@ -7,6 +7,11 @@ public class InsBlockEx {
 		System.out.println("init-3");
 	}
 
+	//  static variables/block are called when a class loads and static variables are called only once.
+	static {
+		System.out.println("static-init-3");
+	}
+
 	public InsBlockEx() {
 		System.out.println("default");
 	}
@@ -17,6 +22,10 @@ public class InsBlockEx {
 
 	{
 		System.out.println("init");
+	}
+
+	static {
+		System.out.println("static-init");
 	}
 
 	public static void main(String[] args) {

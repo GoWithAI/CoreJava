@@ -6,6 +6,7 @@ class SuperEx {
 	String type = "a";
 
 	void message() {
+		// static int x = 10; // static is not allowed locally
 		System.out.println("message : SuperEx");
 	}
 
