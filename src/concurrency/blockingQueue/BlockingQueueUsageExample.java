@@ -11,7 +11,6 @@ public class BlockingQueueUsageExample {
 		boundedBlockingQueue();
 		unboundedBlockingQueue();
 		
-	
 	}
 
 	//unbounded blocking Queue where size is not fixed

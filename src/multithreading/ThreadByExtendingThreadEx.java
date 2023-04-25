@@ -8,9 +8,7 @@ public class ThreadByExtendingThreadEx extends Thread {
 	}
 
 	public static void main(String[] args) {
-
 		ThreadByExtendingThreadEx t = new ThreadByExtendingThreadEx();
 		t.start();
-
 	}
 }

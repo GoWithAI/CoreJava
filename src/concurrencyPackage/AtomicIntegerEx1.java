@@ -11,9 +11,6 @@ public class AtomicIntegerEx1 {
 			System.out.println(counter.incrementAndGet());
 			Thread.sleep(500);
 		}
-		
-		
-
 	}
 
 }
