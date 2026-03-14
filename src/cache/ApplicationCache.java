@@ -9,13 +9,9 @@ public class ApplicationCache<K, V> {
 	private Map<K, V> map = new HashMap<K, V>();//key can be locked
 
 	public void add(K k, V v) {
-		
-		
 		synchronized (map) {
 			map.put(k, v);	
 		}
-		
-				
 	}
 
 	public void delete(K k) {
@@ -32,8 +28,5 @@ public class ApplicationCache<K, V> {
 		}catch (Error e) {
 
 		}
-		
-		
-		
-	}
+    }
 }
