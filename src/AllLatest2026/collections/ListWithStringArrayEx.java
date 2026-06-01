@@ -1,4 +1,4 @@
-package collections;
+package AllLatest2026.collections;
 
 import java.util.ArrayList;
 import java.util.List;

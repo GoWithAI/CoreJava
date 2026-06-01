@@ -3,8 +3,9 @@ package AlLatest.java.instanceOfPatternMatching;
 public class PatternMatchingIFStatementEx4 {
     public static void main(String[] args) {
 
-        ifAndExample();
-        ifOrExample();
+        //ifAndExample();
+       // ifOrExample();
+       // ifOrExample();
     }
 
     private static void ifOrExample(Shape shape) {

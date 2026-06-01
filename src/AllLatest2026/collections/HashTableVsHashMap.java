@@ -1,4 +1,4 @@
-package collections;
+package AllLatest2026.collections;
 
 import java.util.HashMap;
 import java.util.Hashtable;
