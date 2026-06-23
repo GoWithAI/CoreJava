@@ -74,7 +74,7 @@ This document provides a detailed mapping of Java interview questions to the spe
 | What are Sealed Classes and how to use them? | `src/AlLatest/java/sealedClasses` (package) |
 | What are Virtual Threads (Java 21)? | `src/AlLatest/java/virtualThread` (package) |
 | What is Structured Concurrency? | `src/AlLatest/java/structuredConcurrency` (package) |
-| How to run a Java file without a class declaration (Java 21 JEP 445)? | `src/AlLatest/java/WithoutClassRunMethod.java` |
+| How to run a Java file without a class declaration (Java 21 JEP 445)? | `src/AlLatest/java/AllLatest2026.WithoutClassRunMethod.java` |
 
 ## 7. Miscellaneous
 
