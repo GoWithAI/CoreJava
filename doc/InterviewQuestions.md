@@ -19,7 +19,7 @@ Based on `src/stream`, `src/streamInterviewQA`, and `src/streams`:
 - How to convert a List of objects into a Map?
 
 ### 2. Collections Framework
-Based on `src/collections`, `src/AllLatest2026/collections`, and `src/hashCodeEquals`:
+Based on `src/collections`, `src/AllLatest2025/collections`, and `src/hashCodeEquals`:
 - Difference between `HashMap` and `HashTable`?
 - How does `HashSet` handle duplicate objects? (Role of `hashCode()` and `equals()`)
 - Difference between `Comparable` and `Comparator`?

@@ -1,4 +1,0 @@
-package AllLatest2026.sealedClasses.solution2;
-
-final class YellowLight implements TrafficeLight{
-}

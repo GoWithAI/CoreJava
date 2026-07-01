@@ -20,13 +20,13 @@ This document provides a detailed mapping of Java interview questions to the spe
 
 | Question | Code Reference |
 | :--- | :--- |
-| What is the difference between `HashTable` and `HashMap`? | `src/AllLatest2026/collections/HashTableVsHashMap.java` |
-| How does `HashSet` handle duplicate objects? | `src/AllLatest2026/collections/HashSetDuplicateObject.java` |
-| How to sort a `HashMap` by key? | `src/AllLatest2026/collections/SortHashMapByKey1.java`, `src/AllLatest2026/map/SortMapByKey.java` |
-| How to make a `HashMap` thread-safe? | `src/AllLatest2026/collections/SynchronizeHashMap.java`, `src/AllLatest2026/collections/ThreadSafeHashMap.java` |
-| How to use `ArrayDeque`? | `src/AllLatest2026/collections/ArrayDeququeEx.java` |
-| How to use `PriorityQueue`? | `src/AllLatest2026/collections/PriorityQueueEx.java` |
-| When to use `TreeSet`? | `src/AllLatest2026/collections/TreeSetTest.java` |
+| What is the difference between `HashTable` and `HashMap`? | `src/AllLatest2025/collections/HashTableVsHashMap.java` |
+| How does `HashSet` handle duplicate objects? | `src/AllLatest2025/collections/HashSetDuplicateObject.java` |
+| How to sort a `HashMap` by key? | `src/AllLatest2025/collections/SortHashMapByKey1.java`, `src/AllLatest2025/map/SortMapByKey.java` |
+| How to make a `HashMap` thread-safe? | `src/AllLatest2025/collections/SynchronizeHashMap.java`, `src/AllLatest2025/collections/ThreadSafeHashMap.java` |
+| How to use `ArrayDeque`? | `src/AllLatest2025/collections/ArrayDeququeEx.java` |
+| How to use `PriorityQueue`? | `src/AllLatest2025/collections/PriorityQueueEx.java` |
+| When to use `TreeSet`? | `src/AllLatest2025/collections/TreeSetTest.java` |
 | Difference between `Comparable` and `Comparator`? | `src/comparatorVsComparableEx1` (package) |
 
 ## 3. Exception Handling
@@ -74,7 +74,7 @@ This document provides a detailed mapping of Java interview questions to the spe
 | What are Sealed Classes and how to use them? | `src/AlLatest/java/sealedClasses` (package) |
 | What are Virtual Threads (Java 21)? | `src/AlLatest/java/virtualThread` (package) |
 | What is Structured Concurrency? | `src/AlLatest/java/structuredConcurrency` (package) |
-| How to run a Java file without a class declaration (Java 21 JEP 445)? | `src/AlLatest/java/AllLatest2026.WithoutClassRunMethod.java` |
+| How to run a Java file without a class declaration (Java 21 JEP 445)? | `src/AlLatest/java/AllLatest2025.WithoutClassRunMethod.java` |
 
 ## 7. Miscellaneous
 
