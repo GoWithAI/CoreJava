@@ -1,27 +1,35 @@
-import java.util.Stack;
+package corejava.strings.problems;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class BalancedParenthesesKata {
+
     static void main() {
-        String par = "{{{(())}}}";
+        System.out.println(isBalanced("{{{(())}}}"));
+        System.out.println(isBalanced("{{{(()}}}"));
+        System.out.println(isBalanced("[({})]"));
+        System.out.println(isBalanced("[(])"));
+    }
 
-        Stack stack = new Stack();
+    static boolean isBalanced(String input) {
+        // odd length can never pair up
+        if (input.length() % 2 != 0) {
+            return false;
+        }
 
+        Deque<Character> stack = new ArrayDeque<>();
 
-        // val - total size % 2 => if 0 then valid
-        char[] charArray = par.toCharArray();
-
-        if((par.toCharArray() % 2) != 0)
-            System.out.println("Not matching String");
-
-
-        int start = 0;
-        int end = charArray.length - 1;
-
-        while(true){
-            if(charArray[start] != charArray[end]){
-                System.out.println("Not matching String");
-                break;
+        for (char c : input.toCharArray()) {
+            switch (c) {
+                case '(', '[', '{' -> stack.push(c);
+                case ')' -> { if (stack.poll() != '(') return false; }
+                case ']' -> { if (stack.poll() != '[') return false; }
+                case '}' -> { if (stack.poll() != '{') return false; }
+                default -> { }
             }
         }
+
+        return stack.isEmpty();
     }
 }

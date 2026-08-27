@@ -22,12 +22,6 @@ sourceSets {
     main {
         java {
             srcDirs = ['src']
-            // Pre-existing compile failures, unrelated to packaging. Each is a
-            // half-finished practice file that has never compiled. Remove the
-            // entry once the file is fixed.
-            exclude 'corejava/functional/effectivefinal/EffectiveFinal.java'
-            exclude 'corejava/strings/problems/BalancedParenthesesKata.java'
-            exclude 'corejava/streams/problems/EmployeeGroupingKata.java'
         }
         resources {
             srcDirs = ['src']
@@ -40,5 +34,13 @@ sourceSets {
 // their comments. Declaring the encoding keeps them compiling untouched.
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'windows-1252'
-    options.compilerArgs << '--enable-preview'
+}
+
+// Runs any single example, e.g.
+//   ./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
+tasks.register('run', JavaExec) {
+    group = 'application'
+    description = 'Runs one class: ./gradlew run -Pmain=<fully.qualified.ClassName>'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = providers.gradleProperty('main').orElse('corejava.strings.problems.BalancedParenthesesKata')
 }

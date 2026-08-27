@@ -4,6 +4,12 @@ import java.util.List;
 
 public class EffectiveFinal {
 
+    record Employee(String name, int salary) {
+        int getSalary() {
+            return salary;
+        }
+    }
+
     static void main() {
 
 
@@ -36,6 +42,9 @@ public class EffectiveFinal {
                 System.out.println(count);
             }
         };
+        r.run();
+
+        List<Employee> employees = List.of(new Employee("Deepak", 50000), new Employee("Akash", 60000));
 
         int bonus = 1000;
         employees.stream()
@@ -43,10 +52,9 @@ public class EffectiveFinal {
                 .forEach(System.out::println);
 
 
-        int count = 10;
-        count++; // modified
-        Runnable r = () -> {
-            System.out.println(count);
-        };
+        // does NOT compile: modifying it means it is no longer effectively final
+        // int modified = 10;
+        // modified++;
+        // Runnable r2 = () -> System.out.println(modified);
     }
 }

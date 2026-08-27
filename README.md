@@ -52,7 +52,10 @@ Every topic lives in one place under `src/corejava/`. Inside a topic:
 ./gradlew compileJava
 ```
 
-Java 25. Most classes have a `main` method - run any of them directly from the IDE.
+Java 25. All 510 files compile, with nothing excluded.
 
-Three files are excluded from the build because they have pre-existing compile
-errors; they are listed in `build.gradle`.
+308 classes have a `main` method. Run any of them from the IDE, or:
+
+```bash
+./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
+```

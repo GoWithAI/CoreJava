@@ -9,7 +9,7 @@ public class EmployeeGroupingKata {
     static void main() {
         List<Emp> list = new ArrayList<>();
 
-        Map<String, List<Emp> > map = list.stream().collect(Collectors.groupingBy(Emp::getDep, e -> e ));
+        Map<String, List<Emp> > map = list.stream().collect(Collectors.groupingBy(Emp::getDep));
 
 
 
