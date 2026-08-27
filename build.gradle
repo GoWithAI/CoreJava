@@ -164,14 +164,57 @@ tasks.named('compileJava') { enabled = false }
 tasks.named('classes') { dependsOn 'compileResilient' }
 
 /*
+ * Compiles ONLY the class named by -Pmain, and whatever that class actually
+ * references. Nothing else in the repository is looked at or built, so a
+ * half-finished file in some other package is irrelevant.
+ */
+tasks.register('compileOne') {
+    group = 'application'
+    description = 'Compiles only the class given by -Pmain'
+
+    def launcher = javaToolchains.launcherFor(java.toolchain)
+    def deps = configurations.runtimeClasspath
+    def srcDirRef = file('src')
+    def outDirRef = classesDir
+    def mainProp = providers.gradleProperty('main')
+
+    doLast {
+        def cls = mainProp.getOrElse('')
+        if (!cls) throw new GradleException("Give a class: ./gradlew run -Pmain=<fully.qualified.ClassName>")
+
+        def srcFile = new File(srcDirRef, cls.replace('.', '/') + '.java')
+        if (!srcFile.exists()) throw new GradleException("No source file for ${cls} at ${srcFile}")
+
+        def javac = new File(launcher.get().metadata.installationPath.asFile, 'bin/javac.exe')
+        if (!javac.exists()) javac = new File(launcher.get().metadata.installationPath.asFile, 'bin/javac')
+
+        def out = outDirRef.get().asFile
+        out.mkdirs()
+
+        def cp = deps.files.collect { it.absolutePath }.join(File.pathSeparator)
+        def cmd = [javac.absolutePath, '-d', out.absolutePath, '-encoding', 'windows-1252',
+                   '-sourcepath', srcDirRef.absolutePath, '-nowarn']
+        if (cp) cmd += ['-classpath', cp]
+        cmd += [srcFile.absolutePath]
+
+        def proc = new ProcessBuilder(cmd).redirectErrorStream(true).start()
+        def output = proc.inputStream.text
+        def rc = proc.waitFor()
+        if (output) println output.trim()
+        if (rc != 0) throw new GradleException("${cls} does not compile - see the errors above.")
+    }
+}
+
+/*
  * Runs one example, e.g.
  *   ./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
- * Depends on compileResilient so an unrelated broken file never blocks it.
+ * Depends on compileOne, so only that class is compiled - a broken file
+ * anywhere else in the repository is never even looked at.
  */
 tasks.register('run', JavaExec) {
     group = 'application'
     description = 'Runs one class: ./gradlew run -Pmain=<fully.qualified.ClassName>'
-    dependsOn 'compileResilient'
+    dependsOn 'compileOne'
     classpath = files(classesDir) + configurations.runtimeClasspath
     mainClass = providers.gradleProperty('main').orElse('corejava.strings.problems.BalancedParenthesesKata')
 }

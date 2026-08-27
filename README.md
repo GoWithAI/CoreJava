@@ -60,7 +60,17 @@ Java 25. All 510 files compile.
 ./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
 ```
 
-### A broken file never blocks the others
+### Running one class compiles only that class
+
+`run` compiles just the class you name plus whatever it actually references -
+two class files, not 623. Nothing else in the repository is looked at, so a
+half-finished file in another package cannot affect it.
+
+```bash
+./gradlew run -Pmain=corejava.collections.HashSetDuplicateObject
+```
+
+### Checking the whole repository
 
 This is a practice repository, so half-finished files are normal. `compileResilient`
 compiles everything, drops whatever failed, and compiles again, until what remains is
@@ -76,8 +86,8 @@ Compiled 509 of 510 source files.
   src/corejava/streams/HalfFinished.java  ->  cannot find symbol
 ```
 
-`run` uses it, so running one example never waits on an unrelated broken file. The
-skipped files are also written to `build/broken-files.txt`.
+The skipped files are also written to `build/broken-files.txt`. This is only for
+checking everything at once - running a single class does not use it.
 
 It only compiles what changed, so pressing Run repeatedly does not rebuild the
 project: an unchanged build is about 2 seconds, and a one-file edit compiles that
