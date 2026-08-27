@@ -133,6 +133,15 @@ tasks.register('compileResilient') {
 }
 
 /*
+ * The IDE builds through Gradle (delegatedBuild), and its build runs
+ * compileResilient rather than the standard compileJava. That is what makes
+ * the guarantee hold inside the IDE too: pressing Run on any class works even
+ * while a different class does not compile.
+ */
+tasks.named('compileJava') { enabled = false }
+tasks.named('classes') { dependsOn 'compileResilient' }
+
+/*
  * Runs one example, e.g.
  *   ./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
  * Depends on compileResilient so an unrelated broken file never blocks it.
