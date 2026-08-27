@@ -25,9 +25,9 @@ sourceSets {
             // Pre-existing compile failures, unrelated to packaging. Each is a
             // half-finished practice file that has never compiled. Remove the
             // entry once the file is fixed.
-            exclude 'AllLatest2026/concepts/EffectiveFinal.java'
-            exclude 'Pararenthesis.java'
-            exclude 'test/ex/TestEmpSorting.java'
+            exclude 'corejava/functional/effectivefinal/EffectiveFinal.java'
+            exclude 'corejava/strings/problems/BalancedParenthesesKata.java'
+            exclude 'corejava/streams/problems/EmployeeGroupingKata.java'
         }
         resources {
             srcDirs = ['src']

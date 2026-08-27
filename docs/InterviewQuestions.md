@@ -8,7 +8,7 @@ This document summarizes the interview questions covered by the examples in this
 ## Interview Categories & Questions
 
 ### 1. Java 8 Streams API
-Based on `src/stream`, `src/streamInterviewQA`, and `src/streams`:
+Based on `src/corejava/streams` and `src/corejava/streams/questions`:
 - How to use `flatMap` to flatten a list of lists?
 - Difference between `map()` and `flatMap()`?
 - How to group objects by a property using `Collectors.groupingBy`?
@@ -19,7 +19,7 @@ Based on `src/stream`, `src/streamInterviewQA`, and `src/streams`:
 - How to convert a List of objects into a Map?
 
 ### 2. Collections Framework
-Based on `src/collections`, `src/AllLatest2025/collections`, and `src/hashCodeEquals`:
+Based on `src/corejava/collections` and `src/corejava/collections/hashcodeequals`:
 - Difference between `HashMap` and `HashTable`?
 - How does `HashSet` handle duplicate objects? (Role of `hashCode()` and `equals()`)
 - Difference between `Comparable` and `Comparator`?
@@ -29,7 +29,7 @@ Based on `src/collections`, `src/AllLatest2025/collections`, and `src/hashCodeEq
 - Performance difference between `ArrayList` and `LinkedList`?
 
 ### 3. Exception Handling
-Based on `src/exceptionCases` and `src/interviewQuestions/exception`:
+Based on `src/corejava/exceptions` and `src/corejava/exceptions/questions`:
 - Can we have a `try` block without `catch`? (Using `finally` or Try-with-resources)
 - What is the sequence of catch blocks for hierarchical exceptions?
 - Difference between Checked and Unchecked exceptions?
@@ -37,7 +37,7 @@ Based on `src/exceptionCases` and `src/interviewQuestions/exception`:
 - Multi-catch block syntax and rules (Java 7+).
 
 ### 4. Object-Oriented Programming (OOPs) & Inheritance
-Based on `src/encapsulation`, `src/interviewQuestions/inheritance`, and `src/keywords`:
+Based on `src/corejava/language/encapsulation`, `src/corejava/oop/inheritance/questions`, and `src/corejava/language/keywords`:
 - Can we override a `final` method?
 - Difference between method overloading and overriding?
 - How does `instanceof` pattern matching work in later Java versions?
@@ -46,15 +46,15 @@ Based on `src/encapsulation`, `src/interviewQuestions/inheritance`, and `src/key
 - Abstract classes vs Interfaces (especially with Java 8/9+ default/static/private methods).
 
 ### 5. Multithreading & Concurrency
-Based on `src/multithreading`, `src/concurrency`, and `src/concurrencyPackage`:
+Based on `src/corejava/concurrency/threads` and `src/corejava/concurrency`:
 - Difference between `wait()` and `sleep()`?
 - How to create a thread using `Runnable` vs `Thread` class?
 - What is the `ExecutorService` and how to use it?
-- Difference between `synchronized` method and `synchronized` block?
+- Difference between `synchronized`
 - What are Atomic variables (e.g., `AtomicInteger`) and why are they used?
 
 ### 6. Java 8/11/17+ Features
-Based on `src/java8`, `src/java11`, and `src/AlLatest`:
+Based on `src/corejava/jdkfeatures/java8`, `src/corejava/jdkfeatures/java11`, and `src/corejava`:
 - What are Functional Interfaces and `@FunctionalInterface` annotation?
 - Lambda expressions syntax and usage.
 - New methods in `String` class (Java 11).
