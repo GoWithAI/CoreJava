@@ -68,5 +68,5 @@ Based on `src/java8`, `src/java11`, and `src/AlLatest`:
 - Use of `static` blocks and initializers.
 
 ## Detailed Mapping
-- For a detailed mapping of every interview question to its corresponding source code file, please refer to [DetailedInterviewQuestions.md](./DetailedInterviewQuestions.md).
-- For a list of rephrased common interview questions, see [RephrasedInterviewQuestions.md](./RephrasedInterviewQuestions.md).
+- For a detailed mapping of every interview question to its corresponding source code file, please refer to [DetailedInterviewQuestions.md](DetailedInterviewQuestions.md).
+- For a list of rephrased common interview questions, see [RephrasedInterviewQuestions.md](RephrasedInterviewQuestions.md).
