@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'junit:junit:4.13.2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+// This repository predates a build tool: sources live in a flat `src/`
+// directory rather than the Gradle default `src/main/java`.
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+            // Pre-existing compile failures, unrelated to packaging. Each is a
+            // half-finished practice file that has never compiled. Remove the
+            // entry once the file is fixed.
+            exclude 'AllLatest2026/concepts/EffectiveFinal.java'
+            exclude 'Pararenthesis.java'
+            exclude 'test/ex/TestEmpSorting.java'
+        }
+        resources {
+            srcDirs = ['src']
+            exclude '**/*.java'
+        }
+    }
+}
+
+// Several older files are Windows-1252 encoded and contain smart quotes in
+// their comments. Declaring the encoding keeps them compiling untouched.
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'windows-1252'
+    options.compilerArgs << '--enable-preview'
+}
