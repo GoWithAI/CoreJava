@@ -1,5 +1,0 @@
-sachin,tendulkar
-virat,kohali
-rohit,sharma
-mahendrasingh,dhoni
-sunil,gavaskar

@@ -25,3 +25,13 @@ hs_err_pid*
 /.classpath
 /.project
 /.attach_pid19229
+
+# IDE
+/.idea/
+/.settings/
+*.iml
+
+# Build output (IntelliJ / Eclipse)
+/classes/
+/out/
+/.gradle/
