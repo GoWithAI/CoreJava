@@ -60,6 +60,8 @@ tasks.register('compileResilient') {
     def srcTree = fileTree('src') { include '**/*.java' }
     def deps = configurations.runtimeClasspath
     def launcher = javaToolchains.launcherFor(java.toolchain)
+    def stateFileRef = layout.buildDirectory.file('compiled-state.txt')
+    def srcDirRef = file('src')
 
     inputs.files(srcTree)
     inputs.files(deps)
@@ -71,9 +73,28 @@ tasks.register('compileResilient') {
         if (!javac.exists()) javac = new File(launcher.get().metadata.installationPath.asFile, 'bin/javac')
 
         def out = classesDir.get().asFile
-        out.deleteDir(); out.mkdirs()
+        out.mkdirs()
 
-        def remaining = srcTree.files.toList()
+        // Which sources already compiled, and at what modification time. Anything
+        // that is absent or has changed since is what needs compiling now.
+        def stateFile = stateFileRef.get().asFile
+        def state = [:]
+        if (stateFile.exists()) {
+            stateFile.eachLine { line ->
+                def i = line.lastIndexOf(' ::: ')
+                if (i > 0) state[line.substring(0, i)] = line.substring(i + 5)
+            }
+        }
+
+        def all = srcTree.files.toList()
+        def stale = all.findAll { state[it.absolutePath] != String.valueOf(it.lastModified()) }
+
+        if (stale.isEmpty()) {
+            logger.lifecycle('Up to date: ' + all.size() + ' source files, nothing to compile.')
+            return
+        }
+
+        def remaining = stale
         def broken = [:]
         def round = 0
 
@@ -84,7 +105,7 @@ tasks.register('compileResilient') {
 
             def cp = deps.files.collect { it.absolutePath }.join(File.pathSeparator)
             def cmd = [javac.absolutePath, '-d', out.absolutePath, '-encoding', 'windows-1252',
-                       '-nowarn', '-Xmaxerrs', '10000']
+                       '-sourcepath', srcDirRef.absolutePath, '-nowarn', '-Xmaxerrs', '10000']
             if (cp) cmd += ['-classpath', cp]
             cmd += ['@' + argFile.absolutePath]
 
@@ -104,30 +125,31 @@ tasks.register('compileResilient') {
 
             if (failed.isEmpty()) break
             if (round > 10) {
-                logger.lifecycle("Giving up after 10 rounds; ${failed.size()} files still failing.")
+                logger.lifecycle('Giving up after 10 rounds; ' + failed.size() + ' files still failing.')
                 break
             }
             remaining = remaining.findAll { !failed.contains(it.absolutePath) }
         }
 
-        def total = srcTree.files.size()
-        def compiled = total - broken.size()
-        logger.lifecycle("Compiled ${compiled} of ${total} source files.")
+        remaining.each { state[it.absolutePath] = String.valueOf(it.lastModified()) }
+        stateFile.parentFile.mkdirs()
+        stateFile.text = state.collect { k, v -> k + ' ::: ' + v }.join(System.lineSeparator())
+
+        def stillBroken = all.findAll { state[it.absolutePath] != String.valueOf(it.lastModified()) }
+        logger.lifecycle('Compiled ' + remaining.size() + ' of ' + stale.size() + ' changed file(s).')
 
         def report = brokenReport.get().asFile
         report.parentFile.mkdirs()
-        if (broken.isEmpty()) {
+        if (stillBroken.isEmpty()) {
             report.text = ''
-            logger.lifecycle("No broken files.")
         } else {
-            logger.lifecycle("${broken.size()} file(s) could not be compiled and were skipped:")
-            broken.each { f, err ->
-                def rel = f.replace(File.separator, '/')
+            logger.lifecycle(stillBroken.size() + ' file(s) could not be compiled and were skipped:')
+            stillBroken.each { f ->
+                def rel = f.absolutePath.replace(File.separator, '/')
                 rel = rel.substring(rel.indexOf('/src/') + 1)
-                logger.lifecycle("  ${rel}  ->  ${err}")
+                logger.lifecycle('  ' + rel + '  ->  ' + (broken[f.absolutePath] ?: 'see build/broken-files.txt'))
             }
-            report.text = broken.collect { f, err -> "${f}\t${err}" }.join('\n')
-            logger.lifecycle("Full list: ${report}")
+            report.text = stillBroken.collect { it.absolutePath }.join(System.lineSeparator())
         }
     }
 }

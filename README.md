@@ -78,3 +78,7 @@ Compiled 509 of 510 source files.
 
 `run` uses it, so running one example never waits on an unrelated broken file. The
 skipped files are also written to `build/broken-files.txt`.
+
+It only compiles what changed, so pressing Run repeatedly does not rebuild the
+project: an unchanged build is about 2 seconds, and a one-file edit compiles that
+one file. `./gradlew clean classes` forces a full rebuild.
