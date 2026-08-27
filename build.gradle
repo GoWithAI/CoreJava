@@ -34,13 +34,113 @@ sourceSets {
 // their comments. Declaring the encoding keeps them compiling untouched.
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'windows-1252'
+    options.failOnError = false
 }
 
-// Runs any single example, e.g.
-//   ./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
+def classesDir = layout.buildDirectory.dir('classes/java/main')
+def brokenReport = layout.buildDirectory.file('broken-files.txt')
+
+/*
+ * This is a practice repository. Half-finished files are normal, and a single
+ * one of them must never stop the other 500 classes from running.
+ *
+ * A plain javac run cannot give that: once it hits an error it stops writing
+ * output, so one broken file costs roughly half the class files. This task
+ * compiles everything, drops whatever failed, and compiles again, until what
+ * remains is exactly the set that can compile. Every such class is then
+ * runnable, whatever state the rest of the repository is in.
+ *
+ * Files that could not be compiled are listed on the console and written to
+ * build/broken-files.txt.
+ */
+tasks.register('compileResilient') {
+    group = 'build'
+    description = 'Compiles every class that can compile, skipping any that cannot'
+
+    def srcTree = fileTree('src') { include '**/*.java' }
+    def deps = configurations.runtimeClasspath
+    def launcher = javaToolchains.launcherFor(java.toolchain)
+
+    inputs.files(srcTree)
+    inputs.files(deps)
+    outputs.dir(classesDir)
+    outputs.file(brokenReport)
+
+    doLast {
+        def javac = new File(launcher.get().metadata.installationPath.asFile, 'bin/javac.exe')
+        if (!javac.exists()) javac = new File(launcher.get().metadata.installationPath.asFile, 'bin/javac')
+
+        def out = classesDir.get().asFile
+        out.deleteDir(); out.mkdirs()
+
+        def remaining = srcTree.files.toList()
+        def broken = [:]
+        def round = 0
+
+        while (true) {
+            round++
+            def argFile = File.createTempFile('sources', '.txt')
+            argFile.text = remaining.collect { it.absolutePath.replace(File.separator, '/') }.join(System.lineSeparator())
+
+            def cp = deps.files.collect { it.absolutePath }.join(File.pathSeparator)
+            def cmd = [javac.absolutePath, '-d', out.absolutePath, '-encoding', 'windows-1252',
+                       '-nowarn', '-Xmaxerrs', '10000']
+            if (cp) cmd += ['-classpath', cp]
+            cmd += ['@' + argFile.absolutePath]
+
+            def proc = new ProcessBuilder(cmd).redirectErrorStream(true).start()
+            def output = proc.inputStream.text
+            proc.waitFor()
+            argFile.delete()
+
+            def failed = [] as Set
+            output.eachLine { line ->
+                def m = line =~ /^(.*\.java):\d+: error: (.*)$/
+                if (m) {
+                    failed << new File(m[0][1]).absolutePath
+                    broken.putIfAbsent(m[0][1], m[0][2])
+                }
+            }
+
+            if (failed.isEmpty()) break
+            if (round > 10) {
+                logger.lifecycle("Giving up after 10 rounds; ${failed.size()} files still failing.")
+                break
+            }
+            remaining = remaining.findAll { !failed.contains(it.absolutePath) }
+        }
+
+        def total = srcTree.files.size()
+        def compiled = total - broken.size()
+        logger.lifecycle("Compiled ${compiled} of ${total} source files.")
+
+        def report = brokenReport.get().asFile
+        report.parentFile.mkdirs()
+        if (broken.isEmpty()) {
+            report.text = ''
+            logger.lifecycle("No broken files.")
+        } else {
+            logger.lifecycle("${broken.size()} file(s) could not be compiled and were skipped:")
+            broken.each { f, err ->
+                def rel = f.replace(File.separator, '/')
+                rel = rel.substring(rel.indexOf('/src/') + 1)
+                logger.lifecycle("  ${rel}  ->  ${err}")
+            }
+            report.text = broken.collect { f, err -> "${f}\t${err}" }.join('\n')
+            logger.lifecycle("Full list: ${report}")
+        }
+    }
+}
+
+/*
+ * Runs one example, e.g.
+ *   ./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
+ * Depends on compileResilient so an unrelated broken file never blocks it.
+ */
 tasks.register('run', JavaExec) {
     group = 'application'
     description = 'Runs one class: ./gradlew run -Pmain=<fully.qualified.ClassName>'
-    classpath = sourceSets.main.runtimeClasspath
+    dependsOn 'compileResilient'
+    classpath = files(classesDir) + configurations.runtimeClasspath
     mainClass = providers.gradleProperty('main').orElse('corejava.strings.problems.BalancedParenthesesKata')
 }

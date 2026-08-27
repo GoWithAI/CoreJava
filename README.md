@@ -52,10 +52,29 @@ Every topic lives in one place under `src/corejava/`. Inside a topic:
 ./gradlew compileJava
 ```
 
-Java 25. All 510 files compile, with nothing excluded.
+Java 25. All 510 files compile.
 
 308 classes have a `main` method. Run any of them from the IDE, or:
 
 ```bash
 ./gradlew run -Pmain=corejava.strings.problems.BalancedParenthesesKata
 ```
+
+### A broken file never blocks the others
+
+This is a practice repository, so half-finished files are normal. `compileResilient`
+compiles everything, drops whatever failed, and compiles again, until what remains is
+exactly the set that can compile. Every one of those classes stays runnable no matter
+what state the rest of the repository is in.
+
+```bash
+./gradlew compileResilient
+```
+```
+Compiled 509 of 510 source files.
+1 file(s) could not be compiled and were skipped:
+  src/corejava/streams/HalfFinished.java  ->  cannot find symbol
+```
+
+`run` uses it, so running one example never waits on an unrelated broken file. The
+skipped files are also written to `build/broken-files.txt`.
