@@ -18,6 +18,7 @@ hs_err_pid*
 
 # Archives
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 *.war
 *.ear
 *.zip
